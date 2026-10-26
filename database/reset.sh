@@ -16,7 +16,7 @@ $PSQL -c "DROP OWNED BY gargote;"
 $PSQL -f 01_schema.sql -f 02_donnees.sql
 echo "Niveau 0 chargé."
 
-i=1
+i=0
 while [ "$i" -le "$NIVEAU" ]; do
   $PSQL -f "niveau${i}_schema.sql" -f "niveau${i}_donnees.sql"
   echo "Niveau $i chargé."
