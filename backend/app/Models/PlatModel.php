@@ -15,12 +15,12 @@ class PlatModel extends Model
         'id' => 'int',
         'prix' => 'int',
         'id_categorie' => 'int',
-        'disponnible' => 'boolean',
+        'disponible' => 'boolean',
     ];
 
     // Seuls ces champs peuvent être écrits par insert() / update().
     // Un champ ajouté dans la table doit AUSSI être ajouté ici.
-    protected $allowedFields = ['nom', 'prix', 'id_categorie', 'description', 'disponnible'];
+    protected $allowedFields = ['nom', 'prix', 'id_categorie', 'description', 'disponible'];
 
     // Règles de validation : vérifiées automatiquement avant insert() / update().
     // Liste des règles disponibles :
@@ -49,7 +49,7 @@ class PlatModel extends Model
      * Liste des plats avec le libellé de leur catégorie.
      * Si $idCategorie est fourni, ne garde que cette catégorie.
      */
-    public function listerAvecCategorie(?int $idCategorie = null, ?int $disponnible = null): array
+    public function listerAvecCategorie(?int $idCategorie = null, ?int $disponible = null): array
     {
         $this->select('plat.*, categorie.libelle AS categorie')
             ->join('categorie', 'categorie.id = plat.id_categorie')
@@ -60,10 +60,13 @@ class PlatModel extends Model
             $this->where('plat.id_categorie', $idCategorie, );
         }
 
-        if ($disponnible !== null) {
-            $this->where('plat.disponnible', $disponnible);
+        if ($disponible !== null) {
+            $this->where('plat.disponible', $disponible === 1);
         }
 
         return $this->findAll();
     }
+
+
+    
 }

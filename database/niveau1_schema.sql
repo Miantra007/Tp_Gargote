@@ -1,5 +1,5 @@
 ALTER Table plat add COLUMN description VARCHAR(255);
-ALTER Table plat add COLUMN disponnible BOOLEAN DEFAULT true;
+ALTER Table plat add COLUMN disponible BOOLEAN DEFAULT true;
 ALTER Table plat add constraint ck_prix_plat Check(prix>0);
 ALTER Table plat add constraint ck_nom_plat UNIQUE(nom);
 

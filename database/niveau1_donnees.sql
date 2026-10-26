@@ -22,7 +22,7 @@ FROM categorie WHERE libelle = 'Goûter';
 
 
 UPDATE plat set description = 'Sakafo matsiro' WHERE id_categorie = 1 or id_categorie = 2 or id_categorie =3;
-UPDATE plat set disponnible = false WHERE id = 1 or id= 2;
+UPDATE plat set disponible = false WHERE id = 1 or id= 2;
 
 INSERT INTO plat_du_jour(date_jour,id_plat) VALUES
 (CURRENT_DATE,1),

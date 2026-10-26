@@ -25,3 +25,6 @@ DETAIL:  Key (nom)=(menakely) already exists.
 }
 
 ### 1.4 Filtrer les plats disponibles
+
+
+### 1.5 Le plat du jour
